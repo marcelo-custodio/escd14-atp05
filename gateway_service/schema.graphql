@@ -1,0 +1,34 @@
+enum PhoneType { mobile landline commercial }
+enum Category  { family personal commercial }
+
+type Phone {
+  number: String!
+  type: PhoneType!
+}
+
+type Contact {
+  id: ID!
+  name: String!
+  phones: [Phone!]!
+  category: Category!
+}
+
+input PhoneInput {
+  number: String!
+  type: PhoneType!
+}
+
+input ContactInput {
+  name: String!
+  phones: [PhoneInput!]!
+  category: Category!
+}
+
+type Query {
+  contact(id: ID!): Contact
+  contacts: [Contact!]!
+}
+
+type Mutation {
+  createContact(input: ContactInput!): Contact!
+}

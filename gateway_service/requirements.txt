@@ -1,0 +1,3 @@
+ariadne
+requests
+uvicorn[standard]
